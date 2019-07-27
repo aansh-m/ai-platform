@@ -24,7 +24,7 @@ with mlflow.start_run():
     model.compile(optimizer='adam', loss='binary_crossentropy', metrics=[mean_iou])
     model.summary()
 
-    model_path = "./TrainedModelsUNET/nuclei_finder_unet_1.h5"
+    model_path = "./TrainedModelsUNET/unet_best.h5"
     checkpoint = ModelCheckpoint(model_path,
                                  monitor="val_loss",
                                  mode="min",

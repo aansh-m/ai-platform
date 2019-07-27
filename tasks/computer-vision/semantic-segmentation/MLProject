@@ -13,5 +13,5 @@ entry_points:
   segment:
     parameters:
       input_path: {type: string, default: 'data/sample/sample.png'}
-      model_path: {type: string, default: './TrainedModelsUNET/nuclei_finder_unet_1.h5'}
+      model_path: {type: string, default: './TrainedModelsUNET/unet_best.h5'}
     command: "python segment.py {input_path} {model_path}"
