@@ -1,0 +1,17 @@
+name: Segment
+
+conda_env: conda.yaml
+
+entry_points:
+  train:
+    parameters:
+      train_path: {type: string, default: './data/train/'}
+      batch_size: {type: int, default: 16}
+      epochs: {type: int, default: 20}
+    command: "python train.py {train_path} {batch_size} {epochs}"
+
+  segment:
+    parameters:
+      input_path: {type: string, default: 'data/sample/sample.png'}
+      model_path: {type: string, default: './TrainedModelsUNET/nuclei_finder_unet_1.h5'}
+    command: "python segment.py {input_path} {model_path}"
