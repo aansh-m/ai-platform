@@ -1,5 +1,13 @@
 # Semantic Segmentation
 Model for semantic segmentation of nuclei from cell images. The model used is U-Net.
+### Dataset
+The training dataset can be downloaded from the following link:
+<br>
+https://www.kaggle.com/c/8089/download-all
+ <br>
+Make sure to store the training dataset in /data/train directory. Find all information about how the data is structured on this link:
+ <br>
+https://www.kaggle.com/c/data-science-bowl-2018/data
 ### Usage
 #### Train
 Training model based on following parameters

@@ -12,6 +12,16 @@ def mean_iou(y_true, y_pred):
         prec.append(score)
     return K.mean(K.stack(prec), axis=0)
 
+#Alternate Metric
+def iou_coef(y_true, y_pred, smooth=1):
+
+    intersection = K.sum(K.abs(y_true * y_pred), axis=-1)
+    union = K.sum((y_true,-1) + K.sum(y_pred,-1) - intersection)
+    return (intersection + smooth) / ( union + smooth)
+
+def iou_coef_loss(y_true, y_pred):
+    return -iou_coef(y_true, y_pred)
+
 def build_model(IMG_HEIGHT, IMG_WIDTH, IMG_CHANNELS):
     inputs = Input((IMG_HEIGHT, IMG_WIDTH, IMG_CHANNELS))
     s = Lambda(lambda x: x / 255) (inputs)
